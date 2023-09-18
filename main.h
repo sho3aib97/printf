@@ -10,5 +10,6 @@
 int printc(char c);
 void prints(char *s);
 int _printf(const char *format, ...);
+int numc(int n);
 
 #endif
