@@ -8,7 +8,8 @@
 
 int _printf(const char *format, ...)
 {
-	int count = 0, i = 0, len;
+	int count = 0, i = 0, fold;
+       long unsigned int len;
 	char ch, *str;
 	va_list arg;
 
@@ -40,6 +41,18 @@ int _printf(const char *format, ...)
 		{
 			printc('%');
 			count++;
+		}
+		else if (format[i] == '%' && (format[i + 1] == 'i' || format[i + 1] == 'd'))
+		{
+			fold = va_arg(arg, int);
+			len = numc(fold);
+			str = malloc(sizeof(char) * (len + 1));
+			sprintf(str, "%d", fold);
+			prints(str);
+			free(str);
+			while (len--)
+				count++;
+			i++;
 		}
 	}
 	va_end(arg);
