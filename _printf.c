@@ -4,7 +4,7 @@
  * @format :string
  * Return: value of count
 */
-int _printf(char *format, ...)
+int _printf(const char *format, ...)
 {
 	int count = 0, i = 0, fold;
 	char *str;

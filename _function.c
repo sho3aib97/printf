@@ -4,16 +4,18 @@
  * @c: character to be printed
  * Return: integer value
 */
+
 int printc(char c)
 {
-	if (c == '%')
-		return (write(1, &c, 1));
+	return (write(1, &c, 1));
 }
+
 /**
  * prints - print string of characters
  * @s: string to be printed
  * Return: void
 */
+
 int prints(char *s)
 {
 	if (s)
@@ -26,13 +28,18 @@ int prints(char *s)
 		return (0);
 	}
 	else
-	prints("(null)");
+	{
+		prints("(null)");
+		return (EXIT_FAILURE);
+	}
 }
+
 /**
  * _strlen - calculate length of str
  * @str : string
  * Return: integer
 */
+
 int _strlen(char *str)
 {
 	int i;
@@ -44,4 +51,39 @@ int _strlen(char *str)
 		return (i);
 	}
 	return (0);
+}
+
+/**
+ * numc - function counts the numbers of digits.
+ * @n: the digits.
+ * Return: count.
+ */
+
+int numc(int n)
+{
+	int count = 0;
+
+	if (n < 0)
+		count += 1;
+
+	do {
+		n /= 10;
+		++count;
+	} while (n != 0);
+
+	return (count);
+}
+
+/**
+ * printp - print % sign
+ * @c : character
+ * Return: integer
+*/
+
+int printp(char c)
+{
+	if (c == '%')
+		return (write(1, &c, 1));
+	else
+		return (EXIT_FAILURE);
 }
