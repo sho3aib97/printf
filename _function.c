@@ -84,6 +84,11 @@ int printp(char c)
 {
 	if (c == '%')
 		return (write(1, &c, 1));
+	else if (c != '%')
+	{
+		printc('%');
+		return (write(1, &c, 1));
+	}
 	else
 		return (EXIT_FAILURE);
 }
