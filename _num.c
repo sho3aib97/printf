@@ -19,3 +19,13 @@ int numc(int n)
 
 	return (count);
 }
+/**
+ * printp - print % sign
+ * @c : character
+ * Return: integer
+*/
+int printp(char c)
+{
+	if (c == '%')
+		return (write(1, &c, 1));
+}
