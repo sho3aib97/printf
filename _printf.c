@@ -42,7 +42,7 @@ int _printf(const char *format, ...)
 					break;
 				default:
 					printp(format[i + 1]);
-					count++;
+					(format[i + 1] != '%') ? count += 2 : count++;
 			}
 			i++;
 		}
